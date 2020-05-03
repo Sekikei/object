@@ -7,19 +7,21 @@ namespace オブジェクト指向
         public int Passengers;
         public int FuelCap;
         public int Mpg;
+
+        public void Range()
+        {
+            Console.WriteLine(FuelCap * Mpg);
+        }
     }
     class Program
     {
         static void Main(string[] args)
         {
             Vehicle minivan = new Vehicle();
-            int range;
-            minivan.Passengers = 7;
+            minivan.Passengers = 7; //ドット演算子を使ってメンバーにアクセスする
             minivan.FuelCap = 16;
             minivan.Mpg = 21;
-
-            range = minivan.FuelCap * minivan.Mpg;
-            Console.WriteLine(range);
+            minivan.Range();
         }
     }
 }
