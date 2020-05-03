@@ -8,20 +8,31 @@ namespace オブジェクト指向
         public int FuelCap;
         public int Mpg;
 
-        public void Range()
+        public Vehicle(int p,int q,int r)   //コンストラクターの作成
         {
-            Console.WriteLine(FuelCap * Mpg);
+         Passengers=p;
+         FuelCap=q;
+         Mpg=r;
+         }
+        public int Range()
+        {
+            return FuelCap * Mpg;
+        }
+        public double FuelNeeded(int miles)
+        {
+            return (double)miles / Mpg;
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            Vehicle minivan = new Vehicle();
-            minivan.Passengers = 7; //ドット演算子を使ってメンバーにアクセスする
-            minivan.FuelCap = 16;
-            minivan.Mpg = 21;
-            minivan.Range();
+            Vehicle minivan = new Vehicle(7,16,21);
+            int dist = 252;
+            int range= minivan.Range();
+            double gallons = minivan.FuelNeeded(dist);
+            Console.WriteLine(range);
+            Console.WriteLine(gallons);
         }
     }
 }
